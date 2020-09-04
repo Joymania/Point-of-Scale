@@ -18,7 +18,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::prefix('users')->group(function(){
+Route::group(['middleware' => ['auth']], function () {
+    Route::prefix('users')->group(function(){
     Route::get('/view','Backend\UserController@view')->name('users.view');
     Route::get('/add','Backend\UserController@add')->name('users.add');
     Route::post('/store','Backend\UserController@store')->name('users.store');
@@ -35,3 +36,6 @@ Route::prefix('profile')->group(function(){
     Route::post('/password/store','Backend\ProfileController@passStore')->name('password.store');
 
 });
+});
+
+
