@@ -11,8 +11,8 @@
     <!-- Brand Logo -->
 
     <a href="{{ route('home') }}" class="brand-link">
-      <img src="{{ asset('backend') }}/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Dashboard</span>
+      {{--  <img src="{{ asset('backend') }}/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">  --}}
+      <span class="brand-text font-weight-light"><h3>Point of Scale</h3></span>
     </a>
 
     <!-- Sidebar -->
@@ -75,6 +75,62 @@
                 <a href="{{ route('password.edit') }}" class="nav-link {{( $route=='password.edit')?'active':''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Change Password</p>
+                </a>
+              </li>
+
+            </ul>
+          </li>
+
+          <li class="nav-item {{($prefix=='/Suppliers')?'menu-open':''}}">
+            <a href="#" class="nav-link">
+                <i class="fas fa-industry"></i>
+              <p>
+                Manage Suppliers
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('suppliers.view') }}" class="nav-link {{( $route=='suppliers.view')?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Suppliers</p>
+                </a>
+              </li>
+
+            </ul>
+          </li>
+          <li class="nav-item {{($prefix=='/Customers')?'menu-open':''}}">
+            <a href="#" class="nav-link">
+                <i class="fas fa-universal-access"></i>
+              <p>
+                Manage Customers
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('customers.view') }}" class="nav-link {{( $route=='customers.view')?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Customers</p>
+                </a>
+              </li>
+
+            </ul>
+          </li>
+
+          <li class="nav-item {{($prefix=='/Unit')?'menu-open':''}}">
+            <a href="#" class="nav-link">
+                <i class="fas fa-sort-amount-up"></i>
+              <p>
+                Manage Units
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('unit.view') }}" class="nav-link {{( $route=='unit.view')?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Units</p>
                 </a>
               </li>
 
