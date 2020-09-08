@@ -136,6 +136,43 @@
 
             </ul>
           </li>
+          <li class="nav-item {{($prefix=='/Category')?'menu-open':''}}">
+            <a href="#" class="nav-link">
+                <i class="fa fa-list-alt" aria-hidden="true"></i>
+              <p>
+                Manage Category
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('category.view') }}" class="nav-link {{( $route=='category.view')?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Category</p>
+                </a>
+              </li>
+
+            </ul>
+          </li>
+
+          <li class="nav-item {{($prefix=='/Product')?'menu-open':''}}">
+            <a href="#" class="nav-link">
+                <i class="fa fa-list-alt" aria-hidden="true"></i>
+              <p>
+                Manage Products
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('products.view') }}" class="nav-link {{( $route=='products.view')?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Products</p>
+                </a>
+              </li>
+
+            </ul>
+          </li>
 
             </ul>
       </nav>
