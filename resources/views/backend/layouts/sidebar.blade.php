@@ -157,7 +157,7 @@
 
           <li class="nav-item {{($prefix=='/Product')?'menu-open':''}}">
             <a href="#" class="nav-link">
-                <i class="fa fa-list-alt" aria-hidden="true"></i>
+                <i class="fab fa-product-hunt"></i>
               <p>
                 Manage Products
                 <i class="fas fa-angle-left right"></i>
@@ -168,6 +168,32 @@
                 <a href="{{ route('products.view') }}" class="nav-link {{( $route=='products.view')?'active':''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Products</p>
+                </a>
+              </li>
+
+            </ul>
+          </li>
+
+          <li class="nav-item {{($prefix=='/Purches')?'menu-open':''}}">
+            <a href="#" class="nav-link">
+                <i class="fas fa-shopping-cart"></i>
+              <p>
+                Manage Purches
+                
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('purches.view') }}" class="nav-link {{( $route=='purches.view')?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Purchase</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{ route('pending.view') }}" class="nav-link {{( $route=='pending.view.')?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Approval Purchase</p>
                 </a>
               </li>
 

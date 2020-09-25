@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Routing\Controller;
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 
@@ -82,8 +83,19 @@ Route::prefix('Product')->group(function(){
     Route::get('/delete/{id}','Backend\ProductController@delete')->name('products.delete');
 });
 
+Route::prefix('Purches')->group(function(){
+    Route::get('/view','Backend\PurchesController@view')->name('purches.view');
+    Route::get('/add','Backend\PurchesController@add')->name('purches.add');
+    Route::post('/store','Backend\PurchesController@store')->name('purches.store');
+    Route::get('/pending','Backend\PurchesController@pending')->name('pending.view');
+    Route::get('/approve/{id}','Backend\PurchesController@approve')->name('purches.approve');
+    Route::get('/delete/{id}','Backend\PurchesController@delete')->name('purches.delete');
 });
+Route::get('/get-category','Backend\DefaultController@getCategory')->name('get-category');
+Route::get('/get-product','Backend\DefaultController@getProduct')->name('get-product');
 
 
+
+});
 
 

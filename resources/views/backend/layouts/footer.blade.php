@@ -5,51 +5,27 @@
       <b>Designed & Developed by</b> JOy
     </div>
   </footer>
-  <!-- /.control-sidebar -->
 </div>
-<!-- ./wrapper -->
 
-<!-- jQuery -->
-
-
-<!-- jQuery UI 1.11.4 -->
-<script src="{{asset('backend')}}/plugins/jquery-ui/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button)
-</script>
-<!-- Bootstrap 4 -->
-<script src="{{asset('backend')}}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- ChartJS -->
-<script src="{{asset('backend')}}/plugins/chart.js/Chart.min.js"></script>
-<!-- Sparkline -->
-<script src="{{asset('backend')}}/plugins/sparklines/sparkline.js"></script>
-<!-- JQVMap -->
-<script src="{{asset('backend')}}/plugins/jqvmap/jquery.vmap.min.js"></script>
-<script src="{{asset('backend')}}/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-<!-- jQuery Knob Chart -->
-<script src="{{asset('backend')}}/plugins/jquery-knob/jquery.knob.min.js"></script>
-<!-- daterangepicker -->
-<script src="{{asset('backend')}}/plugins/moment/moment.min.js"></script>
-<script src="{{asset('backend')}}/plugins/daterangepicker/daterangepicker.js"></script>
-<!-- Tempusdominus Bootstrap 4 -->
-<script src="{{asset('backend')}}/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-<!-- Summernote -->
-<script src="{{asset('backend')}}/plugins/summernote/summernote-bs4.min.js"></script>
-<!-- overlayScrollbars -->
-<script src="{{asset('backend')}}/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- AdminLTE App -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="{{asset('backend')}}/dist/js/adminlte.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{asset('backend')}}/dist/js/demo.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{asset('backend')}}/dist/js/pages/dashboard.js"></script>
 <script src="{{ asset('backend') }}/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="{{ asset('backend') }}/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="{{ asset('backend') }}/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="{{ asset('backend') }}/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <script src="{{asset('backend')}}/plugins/jquery-validation/jquery.validate.min.js"></script>
-<script src="{{ asset('backend') }}/plugins/jquery-validation/additional-methods.min.js"></script>
+<script src=" https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+<script src=" https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script src="{{asset('backend')}}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+{{-- <script src="{{asset('backend')}}/dist/js//handlebars.min.js"></script> --}}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script> 
+
+
+
+
+
+
 
 <script>
     $(function () {
@@ -94,6 +70,45 @@
         });
     });
   </script>
+ <script type="text/javascript">
+    $(function(){
+        $(document).on('click','#approveBtn',function(e){
+            e.preventDefault();
+            var link =$(this).attr('href');
+            Swal.fire({
+        title: 'Approve it?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, Approve it!'
+        }).then((result) => {
+        if (result.value) {
+            window.location.href=link;
+            Swal.fire(
+            'Approved'
+            )
+        }
+})
+        });
+    });
+  </script>
+  {{-- <script type="text/javascript">
+  $(function(){
+    $(document).on('click','#approveBtn',function(e){
+            e.preventDefault();
+            var link =$(this).attr('href');
+            Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Approved',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  })
+  });
+  </script> --}}
 
 <script type"text/javascript">
     function preview_image(event) {
@@ -105,6 +120,11 @@
       reader.readAsDataURL(event.target.files[0]);
     }
   </script>
+
+  @stack('script')
+
+  
+
 
 
 </body>

@@ -35,14 +35,14 @@
                   </h3>
               </div><!-- /.card-header -->
               <div class="card-body">
-                <form method="post" action="{{ route('products.store') }}" id="myform">
+                <form method="post" action="{{ route('products.store') }}" id="myform1">
                     @csrf
                     <div class="form-row">
 
                         <div class="form-group col-md-6">
                             <label for="supplier_id">Supplier Name</label>
-                              <select class="form-control" name="supplier_id" id="">
-                                <option value="">Select Supplier</option>
+                              <select class="form-control" name="supplier_id" id="supplier_id">
+                                <option value="" >Select Supplier</option>
                                 @foreach ($suppliers as $supplier)
                                     <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>
                                 @endforeach
@@ -51,7 +51,7 @@
                             <font style="color: red">{{ ($errors->has('name'))? ($errors->first('name')):''}}</font>
                         <div class="form-group col-md-6">
                             <label for="category_id">Category</label>
-                              <select class="form-control" name="category_id" id="">
+                              <select class="form-control" name="category_id" id="category_id">
                                 <option value="">Select Category</option>
                                 @foreach ($category as $categories)
                                     <option value="{{ $categories->id }}">{{ $categories->name }}</option>
@@ -61,12 +61,12 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Name</label>
-                            <input type="text" name="name" class="form-control" >
+                            <input type="text" name="name" class="form-control"  id="name" >
                             <font style="color: red">{{ ($errors->has('email'))? ($errors->first('email')):''}}</font>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="unit_id">Units</label>
-                              <select class="form-control" name="unit_id" id="">
+                              <select class="form-control" name="unit_id" id="unit_id">
                                 <option value="">Select Unit</option>
                                 @foreach ($units as $unit)
                                     <option value="{{ $unit->id }}">{{ $unit->name }}</option>
@@ -95,9 +95,13 @@
 </section>
 <!-- /.content -->
 </div>
-  <script type="text/javascript">
+
+@endsection
+@push('script')
+
+<script type="text/javascript">
     $(document).ready(function () {
-      $('#myform').validate({
+      $('#myform1').validate({
         rules: {
             supplier_id: {
             required: true,
@@ -114,8 +118,8 @@
           },
 
         },
-        messages: {
-        },
+        // messages: {
+        // },
         errorElement: 'span',
         errorPlacement: function (error, element) {
           error.addClass('invalid-feedback');
@@ -130,4 +134,5 @@
       });
     });
     </script>
-@endsection
+
+@endpush

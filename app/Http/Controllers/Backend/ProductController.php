@@ -18,6 +18,7 @@ class ProductController extends Controller
         return view('backend.products.products-view',compact('alldata'));
     }
     public function add(){
+
         $data['suppliers']=Suppliers::all();
         $data['category']=category::all();
         $data['units']=Unit::all();
@@ -25,6 +26,15 @@ class ProductController extends Controller
     }
 
     public function store(Request $request){
+
+        $request->validate([
+            'supplier_id' => 'required',
+            'category_id' =>'required',
+            'name' => 'required',
+            'unit_id' =>'required',
+
+        ]);
+
         $product=new Product();
         $product->supplier_id = $request->supplier_id;
         $product->category_id = $request->category_id;

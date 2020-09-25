@@ -55,9 +55,14 @@
                             <td>{{ $products['category']['name'] }}</td>
                             <td>{{ $products->name }}</td>
                             <td>{{ $products['unit']['name']}}</td>
+                            @php
+                            $count_supplier=App\Purches::where('product_id',$products->id)->count();
+                            @endphp
                             <td>
                                 <a title="Edit"  class="btn btn-sm btn-primary" href="{{ route('products.edit',$products->id) }}"><i class="fa fa-edit"></i></a>
+                                @if($count_supplier<1)
                                 <a title="Delete" id="delete" class="btn btn-sm btn-danger" href="{{ route('products.delete',$products->id) }}" ><i class="fa fa-trash"></i></a>
+                                @endif
                             </td>
 
                         </tr>

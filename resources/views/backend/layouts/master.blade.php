@@ -5,15 +5,12 @@
 
   <!-- Navbar -->
 @include('backend.layouts.nav')
-  <!-- /.navbar -->
 
-  <!-- Main Sidebar Container -->
 @include('backend.layouts.sidebar')
 
-  <!-- Content Wrapper. Contains page content -->
- @yield('content')
- <script src=" https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
- <script src=" https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+  @yield('content')
+
 
 @if (session()->has('success'))
 
@@ -34,7 +31,7 @@
 
 @endif
 
-
-
-  <!-- /.content-wrapper -->
 @include('backend.layouts.footer')
+
+
+

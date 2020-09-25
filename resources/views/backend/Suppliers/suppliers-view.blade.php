@@ -55,10 +55,15 @@
                             <td>{{ $supplier->mobile_no }}</td>
                             <td>{{ $supplier->email }}</td>
                             <td>{{ $supplier->address }}</td>
+                            @php
+                            $count_supplier=App\Product::where('supplier_id',$supplier->id)->count();
+                            @endphp
 
                             <td>
                                 <a title="Edit"  class="btn btn-sm btn-primary" href="{{ route('suppliers.edit',$supplier->id) }}"><i class="fa fa-edit"></i></a>
+                                @if($count_supplier<1)
                                 <a title="Delete" id="delete" class="btn btn-sm btn-danger" href="{{ route('suppliers.delete',$supplier->id) }}" ><i class="fa fa-trash"></i></a>
+                                @endif
                             </td>
 
                         </tr>

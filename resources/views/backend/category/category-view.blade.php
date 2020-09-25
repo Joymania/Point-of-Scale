@@ -49,10 +49,16 @@
                         <tr>
                             <td>{{ $key+1 }}</td>
                             <td>{{ $category->name }}</td>
+                            @php
+                            $count_supplier=App\Product::where('category_id',$category->id)->count();
+                            @endphp
+
 
                             <td>
                                 <a title="Edit"  class="btn btn-sm btn-primary" href="{{ route('category.edit',$category->id) }}"><i class="fa fa-edit"></i></a>
+                                @if($count_supplier<1)
                                 <a title="Delete" id="delete" class="btn btn-sm btn-danger" href="{{ route('category.delete',$category->id) }}" ><i class="fa fa-trash"></i></a>
+                                @endif
                             </td>
 
                         </tr>
